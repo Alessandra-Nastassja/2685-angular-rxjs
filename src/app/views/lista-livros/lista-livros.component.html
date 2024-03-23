@@ -1,19 +1,22 @@
 <section class="container">
   <header>Que livro você procura?</header>
   <div class="busca">
-    <input
-      type="search"
-    >
-    <button>
-      <img src="assets/imagens/icone-busca.png" alt="Lupa de cor roxa">
-    </button>
+    <form [formGroup]="formulario" (ngSubmit)="buscarLivros()">
+      <input
+        type="search"
+        formControlName="campoBusca"
+      >
+      <button type="submit">
+        <img src="assets/imagens/icone-busca.png" alt="Lupa de cor roxa">
+      </button>
+    </form>
   </div>
   <p>Busque por assunto, autoria, nome...</p>
-<div class="container-card" *ngIf="listaLivros?.length > 0, else telaInicial">
+<!-- <div class="container-card" *ngIf="listaLivros?.length > 0, else telaInicial">
   <div *ngFor="let livro of listaLivros">
     <app-livro [livro]="livro"></app-livro>
   </div>
-</div>
+</div> -->
 <ng-template #telaInicial>
   <div class="imagens">
     <h1 class="titulo">Busque o livro <br> que quiser na <br> nossa estante!</h1>
